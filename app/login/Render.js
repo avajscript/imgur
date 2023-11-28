@@ -1,8 +1,9 @@
 "use client";
 import React from "react";
 import styled from "styled-components";
-import COLORS from "../data/colors";
+import COLORS from "../../data/colors";
 import { useForm } from "react-hook-form";
+import { login, signup } from "@/lib/login";
 
 const Cont = styled.div`
   form {
@@ -23,8 +24,10 @@ const Render = () => {
 
   const password = watch("password");
 
-  console.log(errors);
-  const onSubmit = async () => {};
+  const onSubmit = async (data) => {
+    signup(data);
+  };
+
   return (
     <Cont colors={COLORS}>
       <form method="POST" onSubmit={handleSubmit(onSubmit)}>
